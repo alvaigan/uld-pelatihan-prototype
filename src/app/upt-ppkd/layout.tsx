@@ -13,7 +13,7 @@ export default function UPTPPKDLayout({
   return (
     <div className="min-h-screen flex bg-[#f5f7fd]">
       {/* Sidebar */}
-      <aside className="w-64 bg-[#1e40af] text-white flex flex-col">
+      <aside className="w-64 bg-[#1e40af] text-white flex flex-col h-screen fixed">
         {/* Header */}
         <div className="p-6 border-b border-blue-600">
           <h1 className="text-xl font-bold">ULD Pelatihan</h1>
@@ -21,7 +21,7 @@ export default function UPTPPKDLayout({
         </div>
         
         {/* Navigation */}
-        <nav className="flex-1 p-4">
+        <nav className="flex-1 p-4 overflow-y-auto">
           <ul className="space-y-2">
             <li>
               <Link href="/upt-ppkd/dashboard" className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-600 transition-colors">
@@ -68,8 +68,8 @@ export default function UPTPPKDLayout({
           </ul>
         </nav>
         
-        {/* User Profile */}
-        <div className="p-4 border-t border-blue-600">
+        {/* User Profile - Fixed at bottom */}
+        <div className="p-4 border-t border-blue-600 mt-auto">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
               <span className="text-sm font-semibold">AD</span>
@@ -98,7 +98,7 @@ export default function UPTPPKDLayout({
       </aside>
       
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col ml-64">
         {/* Topbar */}
         <header className="bg-white border-b border-gray-200 p-4 flex items-center justify-between">
           <div className="flex items-center gap-4 flex-1">

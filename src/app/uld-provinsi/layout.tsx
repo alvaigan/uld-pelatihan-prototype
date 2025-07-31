@@ -13,7 +13,7 @@ export default function ULDProvinsiLayout({
   return (
     <div className="min-h-screen flex bg-[#f5f7fd]">
       {/* Sidebar */}
-      <aside className="w-64 bg-[#15803d] text-white flex flex-col">
+      <aside className="w-64 bg-[#15803d] text-white flex flex-col h-screen fixed">
         {/* Header */}
         <div className="p-6 border-b border-green-600">
           <h1 className="text-xl font-bold">ULD Pelatihan</h1>
@@ -21,7 +21,7 @@ export default function ULDProvinsiLayout({
         </div>
         
         {/* Navigation */}
-        <nav className="flex-1 p-4">
+        <nav className="flex-1 p-4 overflow-y-auto">
           <ul className="space-y-2">
             <li>
               <Link href="/uld-provinsi/dashboard" className="flex items-center gap-3 p-3 rounded-lg hover:bg-green-600 transition-colors">
@@ -56,8 +56,8 @@ export default function ULDProvinsiLayout({
           </ul>
         </nav>
         
-        {/* User Profile */}
-        <div className="p-4 border-t border-green-600">
+        {/* User Profile - Fixed at bottom */}
+        <div className="p-4 border-t border-green-600 mt-auto">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
               <span className="text-sm font-semibold">ULD</span>
@@ -86,7 +86,7 @@ export default function ULDProvinsiLayout({
       </aside>
       
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col ml-64">
         {/* Topbar */}
         <header className="bg-white border-b border-gray-200 p-4 flex items-center justify-between">
           <div className="flex items-center gap-4 flex-1">

@@ -183,10 +183,6 @@ export default function PengajuanProgram() {
             <Download className="mr-2" size={18} />
             Export Laporan
           </Button>
-          <Button>
-            <FileText className="mr-2" size={18} />
-            Template Pengajuan
-          </Button>
         </div>
       </div>
 

@@ -109,10 +109,6 @@ export default function DataDisabilitas() {
             <Download className="mr-2" size={18} />
             Export Data
           </Button>
-          <Button>
-            <UserCheck className="mr-2" size={18} />
-            Tambah Data
-          </Button>
         </div>
       </div>
 

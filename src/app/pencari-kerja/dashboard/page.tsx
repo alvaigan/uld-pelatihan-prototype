@@ -20,7 +20,7 @@ export default function DashboardPencariKerja() {
           <div className="text-lg">Ayo lanjutkan perjalanan karirmu. Ada 15 lowongan baru yang cocok dengan profilmu.</div>
         </div>
         <form className="flex items-center gap-2 w-full md:w-auto mt-4 md:mt-0">
-          <input type="text" placeholder="Cari Lowongan" className="w-full md:w-72 px-4 py-2 rounded-lg border border-green-300 text-black focus:outline-none focus:ring-2 focus:ring-green-200" />
+          <input type="text" placeholder="Cari Lowongan" className="w-full md:w-72 px-4 py-2 rounded-lg border border-green-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-green-200" />
           <Button className="bg-white text-green-700 hover:bg-green-100 font-semibold px-6">Cari Lowongan</Button>
         </form>
       </div>

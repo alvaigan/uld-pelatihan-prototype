@@ -13,8 +13,9 @@ import {
   AlertTriangle,
   Eye,
   Plus,
-  BarChart3
+  BarChart3,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function ULDProvinsiDashboard() {
   const uptData = [
@@ -138,14 +139,12 @@ export default function ULDProvinsiDashboard() {
         <h1 className="text-3xl font-bold mb-2">Selamat Datang, Admin ULD Provinsi</h1>
         <p className="text-green-100 mb-4">Monitor dan kelola program pelatihan di seluruh wilayah DKI Jakarta</p>
         <div className="flex gap-4">
-          <Button className="bg-white text-green-600 hover:bg-green-50">
-            <FileCheck className="mr-2" size={18} />
-            Review Pengajuan
-          </Button>
-          <Button variant="outline" className="border-white text-white hover:bg-white hover:text-green-600">
-            <BarChart3 className="mr-2" size={18} />
-            Lihat Statistik
-          </Button>
+          <Link href="/uld-provinsi/pengajuan">
+            <Button className="bg-white text-green-600 hover:bg-green-50">
+              <FileCheck className="mr-2" size={18} />
+              Review Pengajuan
+            </Button>
+          </Link>
         </div>
       </div>
 

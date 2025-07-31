@@ -250,10 +250,6 @@ export default function DataPendaftar() {
             <Download className="mr-2" size={18} />
             Export Data
           </Button>
-          <Button variant="outline">
-            <BarChart3 className="mr-2" size={18} />
-            Analisis Demografi
-          </Button>
         </div>
       </div>
 

@@ -107,7 +107,7 @@ const sertifikatList = [
 export default function PelatihanList() {
   const [tab, setTab] = React.useState("jelajahi");
   return (
-    <div className="max-w-5xl mx-auto flex flex-col gap-6">
+    <div className="w-full flex flex-col gap-6">
       <div>
         <h1 className="text-3xl font-bold mb-1">Program Pelatihan</h1>
         <p className="text-gray-600">Tingkatkan keterampilan Anda dengan program pelatihan yang disesuaikan untuk penyandang disabilitas</p>
@@ -149,7 +149,7 @@ export default function PelatihanList() {
             {/* Search & Filter */}
             <div className="flex flex-col md:flex-row gap-4 items-center mb-2">
               <div className="relative flex-1 w-full">
-                <Input placeholder="Cari pelatihan, keterampilan, atau provider..." className="pl-10" />
+                <Input placeholder="Cari pelatihan, keterampilan, atau provider..." className="pl-10 bg-white" />
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
               </div>
               <select className="border rounded-lg px-3 py-2 text-sm text-gray-600 bg-white">
@@ -163,7 +163,7 @@ export default function PelatihanList() {
               </select>
             </div>
             {/* Grid Pelatihan */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
               {pelatihanList.map((p) => (
                 <Card key={p.id} className="relative p-0 overflow-hidden group flex flex-col h-full">
                   {/* Badge harga/gratis */}
@@ -251,7 +251,7 @@ export default function PelatihanList() {
           </div>
         )}
         {tab === "sertifikat" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {sertifikatList.map((s) => (
               <Card key={s.id} className="p-8 flex flex-col gap-4 shadow-md border border-gray-200 relative">
                 <div className="absolute right-6 top-6">
