@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
   ArrowLeft,
   Send,
@@ -21,7 +22,9 @@ export default function BuatProgram() {
     tanggalMulai: '',
     tanggalSelesai: '',
     lokasi: '',
+    modaPelatihan: '',
     biaya: '',
+    sumberDana: '',
     deskripsi: '',
     instruktur: '',
     aksesibilitas: [] as string[]
@@ -144,14 +147,29 @@ export default function BuatProgram() {
               </div>
               <div>
                 <Label htmlFor="lokasi" className="block text-sm font-medium text-gray-700 mb-2">
-                  Lokasi <span className="text-red-500">*</span>
+                  Alamat Pelatihan <span className="text-red-500">*</span>
                 </Label>
                 <Input 
                   id="lokasi"
-                  placeholder="Online, Offline, Hybrid" 
+                  placeholder="Jl. Sudirman No. 123, Jakarta Pusat" 
                   value={formData.lokasi}
                   onChange={(e) => handleInputChange('lokasi', e.target.value)}
                 />
+              </div>
+              <div>
+                <Label htmlFor="modaPelatihan" className="block text-sm font-medium text-gray-700 mb-2">
+                  Moda Pelatihan <span className="text-red-500">*</span>
+                </Label>
+                <Select value={formData.modaPelatihan} onValueChange={(value) => handleInputChange('modaPelatihan', value)}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Pilih moda pelatihan" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Luring">Luring</SelectItem>
+                    <SelectItem value="Daring">Daring</SelectItem>
+                    <SelectItem value="Hybrid">Hybrid</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
               <div>
                 <Label htmlFor="biaya" className="block text-sm font-medium text-gray-700 mb-2">
@@ -165,6 +183,17 @@ export default function BuatProgram() {
                   onChange={(e) => handleInputChange('biaya', e.target.value)}
                 />
                 <p className="text-xs text-gray-500 mt-1">Kosongkan atau isi 0 jika gratis</p>
+              </div>
+              <div>
+                <Label htmlFor="sumberDana" className="block text-sm font-medium text-gray-700 mb-2">
+                  Sumber Dana <span className="text-red-500">*</span>
+                </Label>
+                <Input 
+                  id="sumberDana"
+                  placeholder="APBN, APBD, Swasta, dll." 
+                  value={formData.sumberDana}
+                  onChange={(e) => handleInputChange('sumberDana', e.target.value)}
+                />
               </div>
             </div>
           </div>
@@ -182,21 +211,18 @@ export default function BuatProgram() {
             />
           </div>
 
-          {/* Accessibility Features */}
+          {/* Ragam Disabilitas */}
           <div>
             <Label className="block text-sm font-medium text-gray-700 mb-3">
-              Fitur Aksesibilitas
+              Ragam Disabilitas <span className="text-red-500">*</span>
             </Label>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <p className="text-xs text-gray-500 mb-3">Berdasarkan UU No. 8 Tahun 2016 tentang Penyandang Disabilitas</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {[
-                'Screen Reader',
-                'Subtitle',
-                'Sign Language',
-                'Keyboard Navigation',
-                'High Contrast',
-                'Large Text',
-                'Voice Commands',
-                'Tactile Feedback'
+                'Penyandang Disabilitas Fisik',
+                'Penyandang Disabilitas Intelektual',
+                'Penyandang Disabilitas Mental',
+                'Penyandang Disabilitas Sensorik'
               ].map((feature) => (
                 <label key={feature} className="flex items-center space-x-2">
                   <input

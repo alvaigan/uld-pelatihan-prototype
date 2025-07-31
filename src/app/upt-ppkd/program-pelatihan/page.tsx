@@ -144,9 +144,11 @@ export default function ProgramPelatihan() {
             </div>
 
             <div className="flex gap-2">
-              <Button variant="outline" size="sm" className="flex-1">
-                <Eye className="mr-1" size={16} />
-                Detail
+              <Button asChild variant="outline" size="sm" className="flex-1">
+                <Link href={`/upt-ppkd/program-pelatihan/${program.id}`}>
+                  <Eye className="mr-1" size={16} />
+                  Detail
+                </Link>
               </Button>
               <Button variant="outline" size="sm" className="flex-1">
                 <Edit className="mr-1" size={16} />

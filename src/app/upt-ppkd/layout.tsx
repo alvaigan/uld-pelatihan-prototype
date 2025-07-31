@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { LayoutDashboard, Users, FileText, BookOpen, CheckCircle, BarChart3, Award, Search, Bell, Settings, LogOut } from "lucide-react";
+import { LayoutDashboard, Users, BookOpen, BarChart3, Search, Bell, Settings, LogOut } from "lucide-react";
 import Link from "next/link";
 
 export default function UPTPPKDLayout({
@@ -42,27 +42,9 @@ export default function UPTPPKDLayout({
               </Link>
             </li>
             <li>
-              <Link href="/upt-ppkd/pendaftar" className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-600 transition-colors">
-                <FileText size={20} />
-                <span>Data Pendaftar</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/upt-ppkd/seleksi" className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-600 transition-colors">
-                <CheckCircle size={20} />
-                <span>Hasil Seleksi</span>
-              </Link>
-            </li>
-            <li>
               <Link href="/upt-ppkd/statistik" className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-600 transition-colors">
                 <BarChart3 size={20} />
                 <span>Statistik</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/upt-ppkd/sertifikat" className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-600 transition-colors">
-                <Award size={20} />
-                <span>Kelola Sertifikat</span>
               </Link>
             </li>
           </ul>
