@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { DataTable } from "@/components/ui/data-table";
 import {
   GraduationCap,
   Users,
@@ -22,12 +21,8 @@ import {
   Search,
   Filter,
   Download,
-  Plus,
   Eye,
   Edit,
-  MessageCircle,
-  CheckCircle,
-  AlertCircle,
   XCircle,
   Star
 } from "lucide-react";

@@ -22,8 +22,6 @@ import {
   Filter,
   MapPin,
   BookOpen,
-  Building2,
-  Calendar,
   Users,
   PlayCircle,
   Clock,
@@ -65,9 +63,6 @@ export function DataTable({ data, onViewDetail, onViewMonitoring }: DataTablePro
   const [sortField, setSortField] = useState<keyof Program>('namaProgram');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
   const [searchTerm, setSearchTerm] = useState('');
-  const [filterUPT, setFilterUPT] = useState('');
-  const [filterWilayah, setFilterWilayah] = useState('');
-  const [filterKategori, setFilterKategori] = useState('');
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -119,11 +114,7 @@ export function DataTable({ data, onViewDetail, onViewMonitoring }: DataTablePro
         program.upt.toLowerCase().includes(searchTerm.toLowerCase()) ||
         program.instruktur.toLowerCase().includes(searchTerm.toLowerCase());
       
-      const matchesUPT = !filterUPT || program.upt.includes(filterUPT);
-      const matchesWilayah = !filterWilayah || program.wilayah.includes(filterWilayah);
-      const matchesKategori = !filterKategori || program.kategori.includes(filterKategori);
-      
-      return matchesSearch && matchesUPT && matchesWilayah && matchesKategori;
+      return matchesSearch;
     })
     .sort((a, b) => {
       const aValue = a[sortField];

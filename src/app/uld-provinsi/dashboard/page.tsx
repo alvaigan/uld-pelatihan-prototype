@@ -10,9 +10,7 @@ import {
   MapPin, 
   CheckCircle, 
   Clock, 
-  AlertTriangle,
   Eye,
-  Plus,
   BarChart3,
 } from "lucide-react";
 import Link from "next/link";

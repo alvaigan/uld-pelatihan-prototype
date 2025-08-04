@@ -3,13 +3,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import {
-  LayoutDashboard,
-  Briefcase,
-  User,
-  Star,
   BookOpen,
-  MessageCircle,
-  Info,
   Settings,
   Bell,
   Search,

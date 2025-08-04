@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { LayoutDashboard, FileCheck, BookOpen, Users, BarChart3, Search, Bell, Settings, LogOut } from "lucide-react";
+import { LayoutDashboard, FileCheck, BookOpen, Users, BarChart3, Search, Bell, Settings, LogOut, Building2 } from "lucide-react";
 import Link from "next/link";
 
 export default function ULDProvinsiLayout({
@@ -45,6 +45,12 @@ export default function ULDProvinsiLayout({
               <Link href="/uld-provinsi/pendaftar" className="flex items-center gap-3 p-3 rounded-lg hover:bg-green-600 transition-colors">
                 <Users size={20} />
                 <span>Data Pendaftar</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/uld-provinsi/daftar-ppkd" className="flex items-center gap-3 p-3 rounded-lg hover:bg-green-600 transition-colors">
+                <Building2 size={20} />
+                <span>Daftar PPKD</span>
               </Link>
             </li>
             <li>
