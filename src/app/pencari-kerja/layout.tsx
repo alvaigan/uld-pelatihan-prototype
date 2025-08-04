@@ -8,6 +8,7 @@ import {
   Bell,
   Search,
   LogOut,
+  MessageCircle,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -49,6 +50,10 @@ export default function PencariKerjaLayout({ children }: { children: React.React
             <div className="font-semibold mb-2 mt-6 text-xs text-white/70 uppercase">Pengembangan</div>
             <Link href="/pencari-kerja/pelatihan" className="py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-3">
               <BookOpen size={18} /> Pelatihan
+            </Link>
+            <div className="font-semibold mb-2 mt-6 text-xs text-white/70 uppercase">Layanan</div>
+            <Link href="/pencari-kerja/konseling" className="py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-3">
+              <MessageCircle size={18} /> Layanan Konseling
             </Link>
             {/* <div className="font-semibold mb-2 mt-6 text-xs text-white/70 uppercase">Layanan</div>
             <a href="#" className="py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-3">
