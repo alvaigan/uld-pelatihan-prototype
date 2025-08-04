@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { LayoutDashboard, Users, BookOpen, BarChart3, Search, Bell, Settings, LogOut } from "lucide-react";
+import { LayoutDashboard, Users, BookOpen, BarChart3, Search, Bell, Settings, LogOut, GraduationCap } from "lucide-react";
 import Link from "next/link";
 
 export default function UPTPPKDLayout({
@@ -39,6 +39,12 @@ export default function UPTPPKDLayout({
               <Link href="/upt-ppkd/program-pelatihan" className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-600 transition-colors">
                 <BookOpen size={20} />
                 <span>Program Pelatihan</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/upt-ppkd/alumni-tracer" className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-600 transition-colors">
+                <GraduationCap size={20} />
+                <span>Alumni Tracer</span>
               </Link>
             </li>
             <li>

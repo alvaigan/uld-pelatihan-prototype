@@ -34,7 +34,7 @@ export default function PencariKerjaLayout({ children }: { children: React.React
         
         <nav className="flex-1 px-6 overflow-y-auto">
           <div className="flex flex-col gap-2 text-base">
-            <div className="font-semibold mb-2 mt-4 text-xs text-white/70 uppercase">Utama</div>
+            {/* <div className="font-semibold mb-2 mt-4 text-xs text-white/70 uppercase">Utama</div>
             <a href="/pencari-kerja/dashboard" className="py-2 px-3 rounded-lg bg-white/10 font-semibold flex items-center gap-3">
               <LayoutDashboard size={18} /> Dashboard
             </a>
@@ -51,18 +51,18 @@ export default function PencariKerjaLayout({ children }: { children: React.React
             </a>
             <a href="#" className="py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-3">
               <Star size={18} /> Keterampilan
-            </a>
+            </a> */}
             <div className="font-semibold mb-2 mt-6 text-xs text-white/70 uppercase">Pengembangan</div>
             <Link href="/pencari-kerja/pelatihan" className="py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-3">
               <BookOpen size={18} /> Pelatihan
             </Link>
-            <div className="font-semibold mb-2 mt-6 text-xs text-white/70 uppercase">Layanan</div>
+            {/* <div className="font-semibold mb-2 mt-6 text-xs text-white/70 uppercase">Layanan</div>
             <a href="#" className="py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-3">
               <MessageCircle size={18} /> Aduan & Konsultasi
             </a>
             <a href="#" className="py-2 px-3 rounded-lg hover:bg-white/10 flex items-center gap-3">
               <Info size={18} /> Tentang Dinas
-            </a>
+            </a> */}
           </div>
         </nav>
         

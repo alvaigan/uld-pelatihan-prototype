@@ -1,35 +1,22 @@
 'use client';
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { DataTable, Program } from "@/components/ui/data-table";
 import { 
   BookOpen, 
   Users, 
-  Calendar, 
-  Clock, 
-  MapPin,
-  Building2,
-  Search,
-  Filter,
-  Eye,
-  BarChart3,
-  TrendingUp,
-  CheckCircle,
-  AlertTriangle,
   PlayCircle,
-  PauseCircle,
   Download,
-  Target
+  Target,
+  BarChart3
 } from "lucide-react";
 import { useState } from "react";
 
 export default function ProgramPelatihan() {
   const [activeTab, setActiveTab] = useState("aktif");
 
-  const programList = [
+  const programList: Program[] = [
     {
       id: 1,
       namaProgram: "Digital Marketing untuk Penyandang Disabilitas",
@@ -170,45 +157,15 @@ export default function ProgramPelatihan() {
     }
   ];
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "Sedang Berjalan":
-        return "bg-blue-100 text-blue-800";
-      case "Hampir Selesai":
-        return "bg-orange-100 text-orange-800";
-      case "Selesai":
-        return "bg-green-100 text-green-800";
-      case "Pendaftaran":
-        return "bg-purple-100 text-purple-800";
-      case "Ditunda":
-        return "bg-gray-100 text-gray-800";
-      default:
-        return "bg-gray-100 text-gray-800";
-    }
+  // Handle detail and monitoring actions
+  const handleViewDetail = (program: Program) => {
+    console.log('View detail for:', program.namaProgram);
+    // Add navigation logic here
   };
 
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case "Sedang Berjalan":
-        return <PlayCircle size={16} className="text-blue-600" />;
-      case "Hampir Selesai":
-        return <Clock size={16} className="text-orange-600" />;
-      case "Selesai":
-        return <CheckCircle size={16} className="text-green-600" />;
-      case "Pendaftaran":
-        return <Users size={16} className="text-purple-600" />;
-      case "Ditunda":
-        return <PauseCircle size={16} className="text-gray-600" />;
-      default:
-        return <Clock size={16} className="text-gray-600" />;
-    }
-  };
-
-  const getProgressColor = (progress: number) => {
-    if (progress >= 90) return "bg-green-500";
-    if (progress >= 70) return "bg-orange-500";
-    if (progress >= 40) return "bg-blue-500";
-    return "bg-gray-500";
+  const handleViewMonitoring = (program: Program) => {
+    console.log('View monitoring for:', program.namaProgram);
+    // Add navigation logic here
   };
 
   const filteredProgram = programList.filter(program => {
@@ -315,195 +272,12 @@ export default function ProgramPelatihan() {
           <TabsTrigger value="semua">Semua Program ({totalProgram})</TabsTrigger>
         </TabsList>
 
-        <TabsContent value={activeTab} className="space-y-6">
-          {/* Search and Filter */}
-          <Card className="p-6">
-            <div className="flex flex-col md:flex-row gap-4">
-              <div className="flex-1">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-                  <Input placeholder="Cari nama program, UPT, atau instruktur..." className="pl-10" />
-                </div>
-              </div>
-              <div className="flex gap-2">
-                <Button variant="outline">
-                  <Filter className="mr-2" size={18} />
-                  UPT PPKD
-                </Button>
-                <Button variant="outline">
-                  <MapPin className="mr-2" size={18} />
-                  Wilayah
-                </Button>
-                <Button variant="outline">
-                  <BookOpen className="mr-2" size={18} />
-                  Kategori
-                </Button>
-              </div>
-            </div>
-          </Card>
-
-          {/* Program Cards */}
-          <div className="space-y-4">
-            {filteredProgram.map((program) => (
-              <Card key={program.id} className="p-6 hover:shadow-lg transition-shadow">
-                <div className="space-y-4">
-                  {/* Header */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <h3 className="text-lg font-semibold text-gray-900">{program.namaProgram}</h3>
-                      <Badge className={getStatusColor(program.status)}>
-                        <div className="flex items-center gap-1">
-                          {getStatusIcon(program.status)}
-                          {program.status}
-                        </div>
-                      </Badge>
-                    </div>
-                    <div className="text-sm text-gray-500">
-                      {program.status === "Sedang Berjalan" || program.status === "Hampir Selesai" ? 
-                        `Minggu ke-${program.mingguKe} dari ${program.durasi}` : 
-                        program.durasi
-                      }
-                    </div>
-                  </div>
-
-                  {/* Progress Bar (for active programs) */}
-                  {(program.status === "Sedang Berjalan" || program.status === "Hampir Selesai") && (
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Progress Program</span>
-                        <span className="font-medium">{program.progress}%</span>
-                      </div>
-                      <Progress value={program.progress} className="h-2" />
-                    </div>
-                  )}
-
-                  {/* Main Content */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {/* Left Column - Basic Info */}
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2">
-                        <Building2 size={16} className="text-gray-400" />
-                        <span className="text-sm text-gray-700">{program.upt}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin size={16} className="text-gray-400" />
-                        <span className="text-sm text-gray-700">{program.wilayah}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <BookOpen size={16} className="text-gray-400" />
-                        <span className="text-sm text-gray-700">{program.kategori}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Calendar size={16} className="text-gray-400" />
-                        <span className="text-sm text-gray-700">{program.tanggalMulai} - {program.tanggalSelesai}</span>
-                      </div>
-                    </div>
-
-                    {/* Middle Column - Participation Stats */}
-                    <div className="space-y-3">
-                      <div className="bg-gray-50 p-3 rounded-lg">
-                        <div className="grid grid-cols-2 gap-4 text-center">
-                          <div>
-                            <p className="text-lg font-bold text-blue-600">{program.terdaftar}</p>
-                            <p className="text-xs text-gray-600">Terdaftar</p>
-                          </div>
-                          <div>
-                            <p className="text-lg font-bold text-green-600">{program.aktif}</p>
-                            <p className="text-xs text-gray-600">Aktif</p>
-                          </div>
-                        </div>
-                      </div>
-                      {program.status === "Selesai" && (
-                        <div className="bg-gray-50 p-3 rounded-lg">
-                          <div className="grid grid-cols-2 gap-4 text-center">
-                            <div>
-                              <p className="text-lg font-bold text-green-600">{program.lulus}</p>
-                              <p className="text-xs text-gray-600">Lulus</p>
-                            </div>
-                            <div>
-                              <p className="text-lg font-bold text-red-600">{program.dropout}</p>
-                              <p className="text-xs text-gray-600">Dropout</p>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                      <div className="text-sm text-gray-600">
-                        <span className="font-medium">Instruktur:</span> {program.instruktur}
-                      </div>
-                    </div>
-
-                    {/* Right Column - Performance Metrics */}
-                    <div className="space-y-3">
-                      {(program.status === "Sedang Berjalan" || program.status === "Hampir Selesai" || program.status === "Selesai") && (
-                        <>
-                          <div className="flex justify-between items-center">
-                            <span className="text-sm text-gray-600">Tingkat Kehadiran</span>
-                            <span className="font-medium text-blue-600">{program.tingkatKehadiran}%</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-sm text-gray-600">Kepuasan Peserta</span>
-                            <span className="font-medium text-orange-600">{program.tingkatKepuasan}/5.0</span>
-                          </div>
-                        </>
-                      )}
-                      <div>
-                        <p className="text-sm font-medium text-gray-700 mb-1">Fitur Aksesibilitas:</p>
-                        <div className="flex flex-wrap gap-1">
-                          {program.aksesibilitas.slice(0, 2).map((akses, i) => (
-                            <span key={i} className="bg-green-50 text-green-700 text-xs px-2 py-1 rounded-full">
-                              {akses}
-                            </span>
-                          ))}
-                          {program.aksesibilitas.length > 2 && (
-                            <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
-                              +{program.aksesibilitas.length - 2}
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Footer Actions */}
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                    <div className="flex items-center gap-4 text-sm text-gray-500">
-                      <span>Kapasitas: {program.terdaftar}/{program.kapasitas}</span>
-                      {program.biaya > 0 && (
-                        <span>Biaya: Rp {program.biaya.toLocaleString()}</span>
-                      )}
-                      {program.biaya === 0 && (
-                        <span className="text-green-600 font-medium">Gratis</span>
-                      )}
-                    </div>
-                    <div className="flex gap-2">
-                      <Button variant="outline" size="sm">
-                        <Eye className="mr-1" size={16} />
-                        Detail
-                      </Button>
-                      <Button variant="outline" size="sm">
-                        <BarChart3 className="mr-1" size={16} />
-                        Monitoring
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-
-          {filteredProgram.length === 0 && (
-            <Card className="p-12 text-center">
-              <BookOpen className="mx-auto text-gray-400 mb-4" size={48} />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">
-                Tidak ada program {activeTab === "aktif" ? "yang sedang berjalan" : 
-                activeTab === "pendaftaran" ? "dalam tahap pendaftaran" :
-                activeTab === "selesai" ? "yang sudah selesai" : "ditemukan"}
-              </h3>
-              <p className="text-gray-600">
-                Program akan muncul di sini setelah disetujui dan dimulai oleh UPT PPKD
-              </p>
-            </Card>
-          )}
+        <TabsContent value={activeTab}>
+          <DataTable 
+            data={filteredProgram}
+            onViewDetail={handleViewDetail}
+            onViewMonitoring={handleViewMonitoring}
+          />
         </TabsContent>
       </Tabs>
     </div>
