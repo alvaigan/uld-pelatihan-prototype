@@ -13,6 +13,7 @@ import {
   Phone,
   Mail
 } from "lucide-react";
+import Link from "next/link";
 
 export default function DataDisabilitas() {
   const dataDisabilitas = [
@@ -231,9 +232,11 @@ export default function DataDisabilitas() {
                   </td>
                   <td className="py-4 px-2">
                     <div className="flex gap-2">
-                      <Button variant="ghost" size="sm">
-                        <Eye size={16} />
-                      </Button>
+                      <Link href={`/upt-ppkd/data-disabilitas/${person.id}`}>
+                        <Button variant="ghost" size="sm">
+                          <Eye size={16} />
+                        </Button>
+                      </Link>
                       <Button variant="ghost" size="sm">
                         <Phone size={16} />
                       </Button>
